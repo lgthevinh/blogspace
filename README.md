@@ -26,6 +26,8 @@ This project is open-source and is open to contributions. If you would like to c
 5. Push to the branch.
 6. Create a pull request.
 
+As I am the only contributor to the project, I will review the pull request and merge it if it is a good fit for the project.
+
 Currently, the project is in development. The project uses the following technologies:
 - For client-side development: Next.js, React, and Tailwind CSS
 - For server-side development: FastAPI, and MongoDB
