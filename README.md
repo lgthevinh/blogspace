@@ -1,6 +1,6 @@
 # Blogspace
 
-A brief description of the project.
+Blogspace is a platform for sharing blog posts. It allows users to create and publish blog posts after getting verified, allowing users to share information about themselves and their interests.
 
 ## Table of Contents
 
@@ -8,10 +8,6 @@ A brief description of the project.
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-
-## Installation
-
-Blogspace is a platform for sharing blog posts. It allows users to create and publish blog posts after getting verified, allowing users to share information about themselves and their interests.
 
 ## Usage
 
@@ -29,6 +25,14 @@ This project is open-source and is open to contributions. If you would like to c
 4. Commit your changes.
 5. Push to the branch.
 6. Create a pull request.
+
+Currently, the project is in development. The project uses the following technologies:
+- For client-side development: Next.js, React, and Tailwind CSS
+- For server-side development: FastAPI, and MongoDB
+
+Feel free to contribute to the project by adding new features, fixing bugs, or improving the documentation.
+
+For more information, please refer to the [Engineering Notebook](/documents/text-files/notebook.md) file.
 
 ## License
 
