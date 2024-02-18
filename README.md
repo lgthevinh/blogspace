@@ -12,9 +12,12 @@ Blogspace is a platform for sharing blog posts. It allows users to create and pu
 ## Usage
 
 Because the project is a platform, it is not meant to be used by a single user. Instead, it is meant to be used by multiple users. The users can create and publish blog posts, and read blog posts created by other users.
+
 - User should be able to create an account and log in.
 - User should be able to create and publish blog posts after verified by Blogspace verifier.
 - User should be able to read blog posts created by other users.
+
+Also this project is developed with responsive design, so it can be used on any device.
 
 ## Contributing
 
@@ -35,6 +38,24 @@ Currently, the project is in development. The project uses the following technol
 Feel free to contribute to the project by adding new features, fixing bugs, or improving the documentation.
 
 For more information, please refer to the [Engineering Notebook](/documents/text-files/notebook.md) file.
+
+## Preview
+
+### Some screenshots of the project are as follows:
+Home page (not logged in)
+![Home page](/documents/images/home-page.png)
+
+Home page (logged in)
+![Home page](/documents/images/home-page-logged-in.png)
+
+Sign up page
+![Sign up page](/documents/images/sign-up-page.png)
+
+Create blog modal
+![Create blog modal](/documents/images/create-blog-modal.png)
+
+Edit profile modal
+![Edit profile modal](/documents/images/edit-profile-modal.png)
 
 ## License
 
