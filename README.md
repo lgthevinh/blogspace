@@ -60,5 +60,9 @@ Edit profile modal
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
+
+## Major Update
+
+- 2024-2-19: Added the `README.md` file to the project.
+- 2024-2-19: Added the `LICENSE` file to the project.
 
