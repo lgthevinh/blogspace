@@ -31,3 +31,51 @@ body {
     text-wrap: balance;
   }
 }
+
+.blog-tab h1 {
+  @apply text-3xl font-bold;
+}
+
+.blog-tab h2 {
+  @apply text-2xl font-bold;
+}
+
+.blog-tab p {
+  @apply text-lg;
+}
+
+.blog-tab a {
+  @apply text-blue-500;
+}
+
+.blog-tab a:hover {
+  @apply text-blue-700;
+}
+
+.blog-tab img {
+  @apply w-full;
+}
+
+.blog-tab blockquote {
+  @apply border-l-4 border-gray-300 pl-4;
+}
+
+.blog-tab pre {
+  @apply p-4 bg-gray-100;
+}
+
+.blog-tab code {
+  @apply font-mono;
+}
+
+.blog-tab ul {
+  @apply list-disc pl-9;
+}
+
+.blog-tab ol {
+  @apply list-decimal pl-9;
+}
+
+.blog-tab li {
+  @apply mb-2;
+}
