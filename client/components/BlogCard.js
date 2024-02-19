@@ -1,7 +1,7 @@
 import React from "react";
 
 const BlogCard = (props) => {
-  const { title, description, author, date } = props.blog_data;
+  const { id, title, description, author, date } = props.blog_data;
   return (
     <div className="w-full rounded-box border-slate-400 border p-5">
       <div className="flex flex-col lg:flex-row">
