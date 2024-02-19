@@ -76,6 +76,7 @@ Data model of the project:
 - For blog post collection:
 ```json
 {
+  "id": "string",
   "title": "string",
   "cover_image": "image_url",
   "content": "string",
