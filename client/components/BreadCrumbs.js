@@ -14,7 +14,7 @@ const BreadCrumbs = (props) => {
   }
   );
   return (
-    <div className="text-sm breadcrumbs text-slate-600 sticky top-16 z-40 bg-white">
+    <div className="text-[1rem] breadcrumbs text-slate-600 sticky top-16 z-40 bg-white">
       <ul>
         {url_list}
       </ul>
