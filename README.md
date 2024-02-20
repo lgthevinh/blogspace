@@ -59,6 +59,9 @@ Create blog modal
 Edit profile modal
 ![Edit profile modal](/documents/images/edit-profile-modal.png)
 
+Blog page
+![Blog page](/documents/images/blog-page.png)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
