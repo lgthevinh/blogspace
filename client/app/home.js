@@ -12,27 +12,21 @@ const blogs = [
   {
     id: 1,
     title: "Overview of blogspace, technology and journey.",
-    description: "This is a blog about the overview of blogspace, technology and journey. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ",
+    tags: ["blogspace", "blog"],
     author: "lgthvinh",
     date: "Jan 01, 2022",
   },
   {
     title: "My adventure as a Robotics lover.",
-    description: "This is a blog about my adventure as a Robotics lover.",
+    tags: ["robotics", "blog"],
     author: "lgthvinh",
     date: "Dec 04, 2022 ",
   },
   {
     title: "Learn, learn more, learn forever!",
-    description: "This is a blog about learning, learning more, learning forever.",
+    tags: ["learning", "blog"],
     author: "lgthvinh",
     date: "Feb 14, 2022",
-  },
-  {
-    title: "Overview of blogspace, technology and journey.",
-    description: "This is a blog about the overview of blogspace, technology and journey.",
-    author: "lgthvinh",
-    date: "Aug 03, 2022",
   },
 ];
 
