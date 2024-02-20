@@ -1,7 +1,14 @@
 import React from "react";
 
 const BlogCard = (props) => {
-  const { id, title, description, author, date } = props.blog_data;
+  const { id, title, tags, author, date } = props.blog_data;
+  const tag_list = tags.map((tag, index) => {
+    return (
+      <div key={index} className="rounded-box bg-blue-600 text-slate-50 text-sm w-fit flex flex-row items-center justify-between">
+        <p className="px-3">{tag}</p>
+      </div>
+    );
+  });
   return (
     <div className="w-full rounded-box border-slate-400 border p-5">
       <div className="flex flex-col lg:flex-row">
@@ -10,7 +17,9 @@ const BlogCard = (props) => {
           <a href="" className="text-xl font-bold text-slate-800 hover:underline">
             {title}
           </a>
-          <p className="text-slate-600 text-md line-clamp-3">{description}</p>
+          <div className="flex flex-row items-center justify-start mt-1 mb-3 gap-3">
+            {tag_list}
+          </div>
           <div className="mt-auto">
             <a href="" className="text-slate-600 text-md mt-auto font-semibold hover:underline">
               {author}
