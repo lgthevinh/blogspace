@@ -1,0 +1,6 @@
+/client/config
+
+/server/environment/
+/server/config
+
+__pycache__/
