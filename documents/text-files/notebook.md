@@ -76,11 +76,13 @@ Data model of the project:
 - For blog post collection:
 ```json
 {
-  "id": "string",
   "title": "string",
   "cover_image": "image_url",
   "content": "string",
-  "author": "string",
+  "author": {
+    "user_id": "string",
+    "username": "string"
+  },
   "published_at": "string",
   "tags": ["string"],
   "verified": "boolean",
