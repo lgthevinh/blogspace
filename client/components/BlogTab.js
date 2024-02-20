@@ -5,9 +5,8 @@ const blog_data = {
   title: "Overview of blogspace, technology and journey.",
   cover_image: "https://source.unsplash.com/random",
   content: "# Engineering Notebook\n## Project Overview\n- Project Name: blogspace\n- Project Description: A platform for sharing verified blog posts of users.\n- Project Start Date: February 15, 2024\n- Project End Date: ongoing\n## Table of Contents\n- [1. Introduction](#1-introduction)\n- [2. Requirements](#2-requirements)\n- [3. Design](#3-design)\n## 1. Introduction\nBlogspace is a platform for sharing blog posts. It allows users to create and publish blog posts, allowing users to share information about themselves and their interests.\n## 2. Requirements\nThe requirements for the project are as follows:\n- Authentication\n- User profiles\n- Blog post creation and publishing",
-  tags: ["#first", "#blog"],
+  tags: ["blogspace", "blog"],
   published_at: "2021-10-10T00:00:00Z",
-  tags: ["#blogspace", "#blog"],
 };
 
 const BlogTab = () => {
