@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Navbar from "@/components/Navbar";
 import BreadCrumbs from "@/components/BreadCrumbs";
@@ -55,9 +55,7 @@ const user_data = {
 };
 
 const authentication = {
-  auth_token: "value",
-  refresh_token: "randomValue",
-  is_logged_in: true,
+  is_logged_in: false,
 };
 
 export default function Home() {
