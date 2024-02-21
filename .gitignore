@@ -1,4 +1,4 @@
-/server/environment/
+/server/environment/main_env
 /server/config
 
 __pycache__/
