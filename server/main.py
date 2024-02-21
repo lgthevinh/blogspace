@@ -7,7 +7,6 @@ from fastapi.exceptions import HTTPException
 
 from pymongo.mongo_client import MongoClient
 
-from config import main_uri
 from models import AuthModel
 from controller.controllers import fetch_all_blogs, fetch_blog_from_id, fetch_auth_user_from_email
 
@@ -24,7 +23,7 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
-client = MongoClient(os.environ.get('MONGO_URI', main_uri))
+client = MongoClient(os.environ.get('MONGO_URI'))
 
 @app.get("/")
 def read_root():
