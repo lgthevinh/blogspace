@@ -45,7 +45,7 @@ def read_all_blogs():
 def login(payload: AuthModel):
   email = payload.email
   password = payload.password
-  user = fetch_auth_user_from_email(client, email, password)
+  user = fetch_auth_user_from_email(client, email)
   if user is None:
     return JSONResponse(content={"msg": "Email not found"}, status_code=404)
   if password != user["password"]:

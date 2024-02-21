@@ -36,30 +36,8 @@ def fetch_all_blogs(client: MongoClient):
   except Exception as e:
     print(e)
     return "Interval server error. Please try again later."
-  
-def fetch_auth_user(client: MongoClient, email: str, password: str):
-  try:
-    print(f'Email: {email} Password: {password}')
-    db = client.blogspace
-    collection = db.auth_user
-    user = collection.find_one({ "email": email })
-    if user is None:
-      return None
-    if user["password"] == password:
-      user = {
-        "auth_id": str(user["_id"]),
-        "email": user["email"],
-        "username": user["username"],
-        "password": user["password"],
-      }
-      return user
-    else:
-      return {"msg": "Invalid credentials"}
-  except Exception as e:
-    print(e)
-    return "Interval server error. Please try again later."
 
-def fetch_auth_user_from_email(client: MongoClient, email: str, password: str):
+def fetch_auth_user_from_email(client: MongoClient, email: str):
   db = client.blogspace
   collection = db.auth_user
   user = collection.find_one({ "email": email })
