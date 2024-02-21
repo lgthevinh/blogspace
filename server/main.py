@@ -10,6 +10,11 @@ from pymongo.mongo_client import MongoClient
 from models import AuthModel
 from controller.controllers import fetch_all_blogs, fetch_blog_from_id, fetch_auth_user_from_email
 
+try:
+  from config import main_uri
+except ImportError:
+  main_uri = os.environ.get('MONGO_URI')
+
 app = FastAPI()
 orgins = [
   "http://localhost:3000",
@@ -23,7 +28,7 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
-client = MongoClient(os.environ.get('MONGO_URI'))
+client = MongoClient(main_uri)
 
 @app.get("/")
 def read_root():
