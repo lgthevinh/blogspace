@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -66,5 +68,5 @@ def login(payload: AuthModel):
 
 if __name__ == "__main__":
   import uvicorn
-  uvicorn.run("main:app", host="localhost", port=8080, reload=True)
+  uvicorn.run("main:app", host="localhost", port=os.environ.get('PORT', 8080), reload=True)
 
