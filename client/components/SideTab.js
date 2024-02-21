@@ -23,6 +23,11 @@ const SideTab = (props) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const data = await login_user(email, password);
+    if (data.status === 200) {
+      console.log("Login successfully!");
+    } else {
+      console.log("Login failed!");
+    }
     console.log(data);
   };
   return (
