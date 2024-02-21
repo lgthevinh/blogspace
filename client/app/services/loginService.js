@@ -1,7 +1,6 @@
 import axios from "axios";
-import URI from "@/config/config";
 
-const URL =  process.env.SERVER_URL || URI;
+const URL =  process.env.SERVER_URL || "http://localhost:8080/";
 
 const login_user = async (email, password) => {
   try {
