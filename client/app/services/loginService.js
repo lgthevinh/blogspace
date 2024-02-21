@@ -1,5 +1,5 @@
 import axios from "axios";
-import { URI } from "../config/config";
+import URI from "@/config/config";
 
 const URL =  process.env.production.SERVER_URL || URI;
 
