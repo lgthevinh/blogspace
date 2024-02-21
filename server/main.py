@@ -70,5 +70,5 @@ def login(payload: AuthModel):
 
 if __name__ == "__main__":
   import uvicorn
-  uvicorn.run("main:app", host="localhost", port=os.environ.get('PORT', 8080), reload=True)
+  uvicorn.run("main:app", host="localhost", reload=True)
 
