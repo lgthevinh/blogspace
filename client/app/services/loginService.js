@@ -1,7 +1,7 @@
 import axios from "axios";
 import URI from "@/config/config";
 
-const URL =  process.env.production.SERVER_URL || URI;
+const URL =  process.env.SERVER_URL || URI;
 
 const login_user = async (email, password) => {
   try {
