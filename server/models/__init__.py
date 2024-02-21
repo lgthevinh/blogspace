@@ -1,1 +1,2 @@
-from .BlogModel import BlogModel
+from .BlogModel import *
+from .AuthModel import *
