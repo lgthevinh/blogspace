@@ -32,8 +32,12 @@ def read_root():
 
 @app.get("/blog/{blog_id}")
 def read_blog(blog_id: str):
-  blog = fetch_blog_from_id(client, blog_id)
-  return blog, 404 if blog is None else 200
+  try:
+    blog = fetch_blog_from_id(client, blog_id)
+    return JSONResponse(content=blog, status_code=200) if blog is not None else JSONResponse(content={"msg": "Blog not found"}, status_code=404)
+  except Exception as e:
+    print(e)
+    return JSONResponse(content={"msg": "Internal server error. Please try again later."}, status_code=500)
 
 @app.get("/blog/")
 def read_all_blogs():
@@ -45,12 +49,16 @@ def read_all_blogs():
 def login(payload: AuthModel):
   email = payload.email
   password = payload.password
-  user = fetch_auth_user_from_email(client, email)
-  if user is None:
-    return JSONResponse(content={"msg": "Email not found"}, status_code=404)
-  if password != user["password"]:
-    return JSONResponse(content={"msg": "Invalid credentials"}, status_code=401)
-  return JSONResponse(content=user, status_code=200)
+  try:
+    user = fetch_auth_user_from_email(client, email)
+    if user is None:
+      return JSONResponse(content={"msg": "Email not found"}, status_code=404)
+    if password != user["password"]:
+      return JSONResponse(content={"msg": "Invalid credentials"}, status_code=401)
+    return JSONResponse(content=user, status_code=200)
+  except Exception as e:
+    print(e)
+    return JSONResponse(content={"msg": "Internal server error. Please try again later."}, status_code=500)
 
 if __name__ == "__main__":
   import uvicorn
