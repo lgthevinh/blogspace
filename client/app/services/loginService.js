@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL =  process.env.SERVER_URL;
+const URL =  process.env.SERVER_URL || 'https://blogspace-8vh5.onrender.com/';
 
 const login_user = async (email, password) => {
   try {
