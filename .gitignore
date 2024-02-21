@@ -1,4 +1,5 @@
 /server/environment/main_env
 /server/config
+/server/secrets
 
 __pycache__/

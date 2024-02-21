@@ -24,7 +24,7 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
-client = MongoClient(main_uri)
+client = MongoClient(os.environ.get('MONGO_URI', main_uri))
 
 @app.get("/")
 def read_root():
