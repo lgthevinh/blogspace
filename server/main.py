@@ -14,8 +14,6 @@ from controller.controllers import fetch_all_blogs, fetch_blog_from_id, fetch_au
 app = FastAPI()
 orgins = [
   "http://localhost:3000",
-  "http://localhost:8000",
-  "http://localhost:8080",
   "https://blogspace-psi.vercel.app"
 ]
 app.add_middleware(
