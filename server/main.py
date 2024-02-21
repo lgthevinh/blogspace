@@ -41,8 +41,12 @@ def read_blog(blog_id: str):
 
 @app.get("/blog/")
 def read_all_blogs():
-  blogs = fetch_all_blogs(client)
-  return blogs, 404 if blogs is None or len(blogs) <= 0 else 200
+  try:
+    blogs = fetch_all_blogs(client)
+    return JSONResponse(content=blogs, status_code=200)
+  except Exception as e:
+    print(e)
+    return JSONResponse(content={"msg": "Internal server error. Please try again later."}, status_code=500)
 
 #Authenticating requests
 @app.post("/login/")
