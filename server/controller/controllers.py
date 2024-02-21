@@ -17,7 +17,7 @@ def fetch_blog_from_id(client: MongoClient, blog_id: str):
     return blog
   except Exception as e:
     print(e)
-    return None
+    return "Interval server error. Please try again later."
   
 def fetch_all_blogs(client: MongoClient):
   try:
@@ -35,4 +35,14 @@ def fetch_all_blogs(client: MongoClient):
     return blog_list
   except Exception as e:
     print(e)
-    return None
+    return "Interval server error. Please try again later."
+  
+def login_controller(client: MongoClient, payload):
+  try:
+    db = client.blogspace
+    collection = db.users
+    user = collection.find_one({ "email": payload.email })
+    return user
+  except Exception as e:
+    print(e)
+    return "Interval server error. Please try again later."

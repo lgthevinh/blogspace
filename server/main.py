@@ -1,11 +1,11 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from pymongo.mongo_client import MongoClient
 
 from config import main_uri
 from models import AuthModel
-from controller.controllers import fetch_all_blogs, fetch_blog_from_id
+from controller.controllers import fetch_all_blogs, fetch_blog_from_id, login_controller
 
 app = FastAPI()
 orgins = [
@@ -39,9 +39,8 @@ def read_all_blogs():
 
 #Authenticating requests
 @app.post("/login/")
-async def login(payload: AuthModel):
-  print(payload)
-  return {"message": "Login successful"}
+def login(payload: AuthModel):
+  login_controller(client, payload)
 
 if __name__ == "__main__":
   import uvicorn
