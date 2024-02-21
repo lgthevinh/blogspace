@@ -1,17 +1,20 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from fastapi.exceptions import HTTPException
 
 from pymongo.mongo_client import MongoClient
 
 from config import main_uri
 from models import AuthModel
-from controller.controllers import fetch_all_blogs, fetch_blog_from_id, login_controller
+from controller.controllers import fetch_all_blogs, fetch_blog_from_id, fetch_auth_user_from_email
 
 app = FastAPI()
 orgins = [
   "http://localhost:3000",
   "http://localhost:8000",
-  "http://localhost:8080",  
+  "http://localhost:8080",
+  "https://blogspace-psi.vercel.app"
 ]
 app.add_middleware(
   CORSMiddleware,
@@ -40,7 +43,14 @@ def read_all_blogs():
 #Authenticating requests
 @app.post("/login/")
 def login(payload: AuthModel):
-  login_controller(client, payload)
+  email = payload.email
+  password = payload.password
+  user = fetch_auth_user_from_email(client, email, password)
+  if user is None:
+    return JSONResponse(content={"msg": "Email not found"}, status_code=404)
+  if password != user["password"]:
+    return JSONResponse(content={"msg": "Invalid credentials"}, status_code=401)
+  return JSONResponse(content=user, status_code=200)
 
 if __name__ == "__main__":
   import uvicorn
