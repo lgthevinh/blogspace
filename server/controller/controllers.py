@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
@@ -21,12 +23,14 @@ def fetch_all_blogs(client: MongoClient):
   db = client.blogspace
   collection = db.blogs
   blogs = collection.find()
+  if blogs is None:
+    return None
   blog_list = [{
     "blog_id": str(blog["_id"]), # Convert ObjectId to string to avoid "Object of type ObjectId is not JSON serializable
     "title": blog["title"],
     "tags": blog["tags"],
     "author": blog["author"],
-    "published_at": blog["published_at"]
+    "published_at": blog["published_at"].strftime("%B %d, %Y"),
   } for blog in blogs if blog["verified"] == True]
   return blog_list
 
