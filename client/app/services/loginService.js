@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const SERVER_URL =  process.env.SERVER_URL || 'http://localhost:8080/';
+const URL =  process.env.SERVER_URL || 'http://localhost:8080/';
 
 const login_user = async (email, password) => {
   try {
     console.log("Email: ", email);
     console.log("Password: ", password);
-    const data = await axios.post(`${SERVER_URL}login`, {
+    const data = await axios.post(`${URL}login`, {
       email: email,
       password: password,
     }, {
