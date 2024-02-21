@@ -14,7 +14,7 @@ def fetch_blog_from_id(client: MongoClient, blog_id: str):
     "title": blog["title"],
     "content": blog["content"],
     "author": blog["author"],
-    "published_at": blog["published_at"],
+    "published_at": blog["published_at"].strftime("%B %d, %Y"),
     "verified": blog["verified"]
   }
   return blog
