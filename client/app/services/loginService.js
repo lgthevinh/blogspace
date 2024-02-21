@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL =  process.env.API_URL || "http://localhost:3000/"
+const URL =  process.env.NEXT_SERVER_URL || "http://localhost:8080/"
 
 const login_user = async (email, password) => {
   try {
