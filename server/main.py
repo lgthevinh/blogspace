@@ -1,11 +1,26 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
+from fastapi.middleware.cors import CORSMiddleware
+
 from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
 
 from config import main_uri
+from models import AuthModel
 from controller.controllers import fetch_all_blogs, fetch_blog_from_id
 
 app = FastAPI()
+orgins = [
+  "http://localhost:3000",
+  "http://localhost:8000",
+  "http://localhost:8080",  
+]
+app.add_middleware(
+  CORSMiddleware,
+  allow_origins=orgins,
+  allow_credentials=True,
+  allow_methods=["*"],
+  allow_headers=["*"],
+)
+
 client = MongoClient(main_uri)
 
 @app.get("/")
@@ -13,7 +28,7 @@ def read_root():
   return {"Hello": "World"}
 
 @app.get("/blog/{blog_id}")
-def read_blog(blog_id: str, q: str = None):
+def read_blog(blog_id: str):
   blog = fetch_blog_from_id(client, blog_id)
   return blog, 404 if blog is None else 200
 
@@ -24,9 +39,9 @@ def read_all_blogs():
 
 #Authenticating requests
 @app.post("/login/")
-async def login(username: str, password: str):
-  return {"username": username, "password": password}
-
+async def login(payload: AuthModel):
+  print(payload)
+  return {"message": "Login successful"}
 
 if __name__ == "__main__":
   import uvicorn
