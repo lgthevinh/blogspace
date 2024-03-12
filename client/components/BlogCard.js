@@ -1,8 +1,8 @@
 import React from "react";
 
 const BlogCard = (props) => {
-  const { id, title, tags, author, date } = props.blog_data;
-  const tag_list = tags.map((tag, index) => {
+  const blog = props.blog_data;
+  const tag_list = blog.tags.map((tag, index) => {
     return (
       <div key={index} className="rounded-box bg-blue-600 text-slate-50 text-sm w-fit flex flex-row items-center justify-between">
         <p className="px-3">{tag}</p>
@@ -15,16 +15,16 @@ const BlogCard = (props) => {
         <div className="skeleton lg:h-32 h-48 w-full mb-3 lg:mb-0 lg:w-48 rounded-lg"></div>
         <div className="lg:ms-3 w-full flex flex-col content-between min-h-fit">
           <a href="" className="text-xl font-bold text-slate-800 hover:underline">
-            {title}
+            {blog.title}
           </a>
           <div className="flex flex-row items-center justify-start mt-1 mb-3 gap-3">
             {tag_list}
           </div>
           <div className="mt-auto">
             <a href="" className="text-slate-600 text-md mt-auto font-semibold hover:underline">
-              {author}
+              {blog.author.username}
             </a>
-            <span className="text-slate-500 font-normal"> | {date}</span>
+            <span className="text-slate-500 font-normal"> | {blog.published_at}</span>
           </div>
         </div>
       </div>

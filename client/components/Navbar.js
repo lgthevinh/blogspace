@@ -1,7 +1,12 @@
+'use client'
+
+import { useContext } from 'react';
+import { AuthContext } from '@/contexts/AuthProvider';
+
 import React from "react";
 
-const Navbar = (props) => {
-  const is_logged_in = props.is_logged_in;
+const Navbar = () => {
+  const is_logged_in = useContext(AuthContext).is_logged_in;
   return (
     <div className="navbar bg-white sticky top-0 z-50 ">
       <div className="lg:w-[70%] w-full mx-auto">
