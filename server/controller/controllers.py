@@ -34,16 +34,18 @@ def fetch_all_blogs(client: MongoClient):
   } for blog in blogs if blog["verified"] == True]
   return blog_list
 
-def fetch_auth_user_from_email(client: MongoClient, email: str):
+def fetch_user_data_from_email(client: MongoClient, email: str):
   db = client.blogspace
-  collection = db.auth_user
+  collection = db.users
   user = collection.find_one({ "email": email })
   if user is None:
     return None
   user = {
-      "auth_id": str(user["_id"]),
+      "user_id": str(user["_id"]),
       "email": user["email"],
+      "fullname": user["fullname"],
       "username": user["username"],
-      "password": user["password"],
+      "bio": user["bio"],
+      "social_media": user["social_media"],
     }
   return user
