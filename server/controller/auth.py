@@ -1,6 +1,7 @@
 import os
 
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
+from pymongo import MongoClient
 
 from jose import jwt
 
@@ -9,6 +10,20 @@ try:
 except ImportError:
   SECRET_KEY = os.environ.get('SECRET_KEY')
   ALGORITHM = os.env
+
+def fetch_auth_user_from_email(client: MongoClient, email: str):
+  db = client.blogspace
+  collection = db.auth_user
+  user = collection.find_one({ "email": email })
+  if user is None:
+    return None
+  user = {
+      "auth_id": str(user["_id"]),
+      "email": user["email"],
+      "username": user["username"],
+      "password": user["password"],
+    }
+  return user
 
 def create_access_token(username, email):
   payload = {
