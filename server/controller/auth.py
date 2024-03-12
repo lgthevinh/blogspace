@@ -1,6 +1,6 @@
 import os
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from jose import jwt
 
@@ -14,7 +14,13 @@ def create_access_token(username, email):
   payload = {
     "username": username,
     "email": email,
-    "expires": datetime.utcnow() + timedelta(minutes=30)
   }
   token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
   return token
+
+def verify_token(token):
+  try:
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    return payload
+  except Exception as e:
+    return None
