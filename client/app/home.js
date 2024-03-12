@@ -27,7 +27,6 @@ export default function Home() {
     };
     handleFetchBlogs();
   }, []);
-  console.log(blogs);
   const blog_list = blogs.map((blog, index) => {
     return (
       <div key={index} className="pt-2 pb-5">
