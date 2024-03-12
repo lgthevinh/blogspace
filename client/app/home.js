@@ -8,58 +8,26 @@ import Footer from "@/components/Footer";
 import CreateBlogModal from "@/components/CreateBlogModal";
 import EditProfileModal from "@/components/EditProfileModal";
 
-const blogs = [
-  {
-    id: 1,
-    title: "Overview of blogspace, technology and journey.",
-    tags: ["blogspace", "blog"],
-    author: "lgthvinh",
-    date: "Jan 01, 2022",
-  },
-  {
-    title: "My adventure as a Robotics lover.",
-    tags: ["robotics", "blog"],
-    author: "lgthvinh",
-    date: "Dec 04, 2022 ",
-  },
-  {
-    title: "Learn, learn more, learn forever!",
-    tags: ["learning", "blog"],
-    author: "lgthvinh",
-    date: "Feb 14, 2022",
-  },
-];
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "@/contexts/AuthProvider";
 
-const user_data = {
-  fullname: "Luong The Vinh",
-  username: "lgthvinh",
-  bio: "I thrive on technology especially software. My career is not just a job to me; it's a continuous learning adventure where I embrace challenges as opportunities to grow.",
-  social_media: [
-    {
-      display_text: "Facebook",
-      url: "https://www.facebook.com/vinh.luongthe.14811",
-    },
-    {
-      display_text: "Github",
-      url: "https://github.com/lgthevinh",
-    },
-    {
-      display_text: "LinkedIn",
-      url: "https://www.linkedin.com/in/vinh-luong-the-511a2b252/",
-    },
-    {
-      display_text: "My Portfolio",
-      url: "https://lgthevinh.github.io/my-portfolio/",
-    },
-  ],
-};
-
-const authentication = {
-  is_logged_in: false,
-};
+import fetch_blogs from "@/services/blogService";
 
 export default function Home() {
-  const is_logged_in = authentication.is_logged_in;
+  const [blogs, setBlogs] = useState([]);
+
+  const is_logged_in = useContext(AuthContext).is_logged_in;
+  const user_data = useContext(AuthContext).user;
+
+ 
+  useEffect(() => {
+    const handleFetchBlogs = async () => {
+      const data = await fetch_blogs();
+      setBlogs(data.data);
+    };
+    handleFetchBlogs();
+  }, []);
+  console.log(blogs);
   const blog_list = blogs.map((blog, index) => {
     return (
       <div key={index} className="pt-2 pb-5">
