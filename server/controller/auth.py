@@ -9,7 +9,7 @@ try:
   from config import SECRET_KEY, ALGORITHM
 except ImportError:
   SECRET_KEY = os.environ.get('SECRET_KEY')
-  ALGORITHM = os.env
+  ALGORITHM = os.environ.get('ALGORITHM')
 
 def fetch_auth_user_from_email(client: MongoClient, email: str):
   db = client.blogspace
