@@ -14,7 +14,7 @@ const BlogCard = (props) => {
       <div className="flex flex-col lg:flex-row">
         <div className="skeleton lg:h-32 h-48 w-full mb-3 lg:mb-0 lg:w-48 rounded-lg"></div>
         <div className="lg:ms-3 w-full flex flex-col content-between min-h-fit">
-          <a href="" className="text-xl font-bold text-slate-800 hover:underline">
+          <a href={`blog/${blog.blog_id}`} className="text-xl font-bold text-slate-800 hover:underline">
             {blog.title}
           </a>
           <div className="flex flex-row items-center justify-start mt-1 mb-3 gap-3">

@@ -1,5 +1,8 @@
 'use client'
 
+import CreateBlogModal from "@/components/CreateBlogModal";
+import EditProfileModal from "@/components/EditProfileModal";
+
 import { useContext } from 'react';
 import { AuthContext } from '@/contexts/AuthProvider';
 
@@ -7,8 +10,17 @@ import React from "react";
 
 const Navbar = () => {
   const is_logged_in = useContext(AuthContext).is_logged_in;
+  const user_data = useContext(AuthContext).user;
   return (
     <div className="navbar bg-white sticky top-0 z-50 ">
+      {is_logged_in ? (
+        <div>
+          <CreateBlogModal />
+          <EditProfileModal user={user_data} />
+        </div>
+      ) : (
+        <div></div>
+      )}
       <div className="lg:w-[70%] w-full mx-auto">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl text-blue-600 px-0 hover:bg-inherit">blogspace</a>
@@ -20,6 +32,7 @@ const Navbar = () => {
               onClick={() => document.getElementById("create_blog_modal").showModal()}>
               Create blog
             </button>
+            
           ) : (
             <div></div>
           )}

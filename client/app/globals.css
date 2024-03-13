@@ -32,6 +32,11 @@ body {
   }
 }
 
+.blog-tab .title {
+  @apply text-4xl font-bold !important;
+  line-height: 3rem !important;
+}
+
 .blog-tab h1 {
   @apply text-3xl font-bold;
 }

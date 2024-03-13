@@ -5,13 +5,11 @@ import BreadCrumbs from "@/components/BreadCrumbs";
 import BlogCard from "@/components/BlogCard";
 import SideTab from "@/components/SideTab";
 import Footer from "@/components/Footer";
-import CreateBlogModal from "@/components/CreateBlogModal";
-import EditProfileModal from "@/components/EditProfileModal";
 
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/contexts/AuthProvider";
 
-import fetch_blogs from "@/services/blogService";
+import { fetch_blogs } from "@/services/blogService";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -27,7 +25,7 @@ export default function Home() {
     };
     handleFetchBlogs();
   }, []);
-  const blog_list = blogs.map((blog, index) => {
+  const blog_list = blogs?.map((blog, index) => {
     return (
       <div key={index} className="pt-2 pb-5">
         <BlogCard blog_data={blog} />
@@ -41,17 +39,6 @@ export default function Home() {
         <div className="grid grid-cols-4 relative mt-0">
           <div className="relative lg:col-span-1 col-span-4">
             <SideTab is_logged_in={is_logged_in} user={user_data} />
-            <div className="">
-              {/* Open the modal using document.getElementById('ID').showModal() method */}
-              {is_logged_in ? (
-                <div>
-                  <CreateBlogModal />
-                  <EditProfileModal user={user_data} />
-                </div>
-              ) : (
-                <div></div>
-              )}
-            </div>
           </div>
           <div className="lg:col-span-3 col-span-4 lg:px-5">
             <BreadCrumbs />
