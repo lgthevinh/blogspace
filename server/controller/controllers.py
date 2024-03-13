@@ -12,6 +12,7 @@ def fetch_blog_from_id(client: MongoClient, blog_id: str):
   blog = {
     "blog_id": str(blog["_id"]), # Convert ObjectId to string to avoid "Object of type ObjectId is not JSON serializable
     "title": blog["title"],
+    "tags": blog["tags"],
     "content": blog["content"],
     "author": blog["author"],
     "published_at": blog["published_at"].strftime("%B %d, %Y"),
